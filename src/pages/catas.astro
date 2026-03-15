@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const items = [
+  { title: 'Catas de Vino', desc: 'Descubre los mejores vinos españoles e internacionales de la mano de nuestros expertos.', img: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80' },
+  { title: 'Maridajes Gastronómicos', desc: 'La perfecta combinación entre vinos y platos de la cocina mediterránea.', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80' },
+  { title: 'Talleres Privados', desc: 'Experiencias exclusivas para grupos reducidos en un ambiente íntimo y refinado.', img: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80' },
+]
+---
+<Layout title="Catas Magistrales" description="Catas de vino y maridajes gastronómicos con Cobos Catering.">
+  <div class="pt-40 pb-20" style="background: var(--color-dark-card); border-bottom: 1px solid var(--color-dark-border);">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Experiencias sensoriales</span>
+      <span class="gold-divider" style="margin: 1.5rem auto;"></span>
+      <h1 class="section-heading">
+        Catas <span style="color: var(--color-gold);">Magistrales</span>
+      </h1>
+    </div>
+  </div>
+
+  <section class="py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
+        <p class="text-lg leading-relaxed" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.6);">
+          Una experiencia sensorial única donde el vino y la gastronomía mediterránea se funden
+          para crear momentos inolvidables.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {items.map((item, i) => (
+          <div
+            class="overflow-hidden group"
+            style="border: 1px solid var(--color-dark-border);"
+            data-reveal
+            data-delay={String(i * 100)}
+          >
+            <div class="overflow-hidden" style="aspect-ratio: 3/2;">
+              <img src={item.img} alt={item.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl mb-2" style="font-family: var(--font-family-display); color: white;">{item.title}</h3>
+              <p class="text-sm" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-16">
+        <a href="/contacto" class="btn-gold">Reservar una cata</a>
+      </div>
+    </div>
+  </section>
+</Layout>

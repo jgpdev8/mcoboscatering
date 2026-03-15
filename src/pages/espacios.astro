@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const items = [
+  { title: 'Salones de Celebración', desc: 'Espacios elegantes para todo tipo de eventos privados y corporativos.', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80' },
+  { title: 'Jardines y Exteriores', desc: 'Celebraciones al aire libre en entornos naturales únicos.', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80' },
+  { title: 'Espacios Privados', desc: 'Recintos exclusivos para los eventos más íntimos y especiales.', img: 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&q=80' },
+]
+---
+<Layout title="Espacios" description="Espacios únicos para eventos con Cobos Catering.">
+  <div class="pt-40 pb-20" style="background: var(--color-dark-card); border-bottom: 1px solid var(--color-dark-border);">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Nuestros espacios</span>
+      <span class="gold-divider" style="margin: 1.5rem auto;"></span>
+      <h1 class="section-heading">
+        Espacios <span style="color: var(--color-gold);">Únicos</span>
+      </h1>
+    </div>
+  </div>
+
+  <section class="py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {items.map((item, i) => (
+          <div
+            class="overflow-hidden group"
+            style="border: 1px solid var(--color-dark-border);"
+            data-reveal
+            data-delay={String(i * 100)}
+          >
+            <div class="overflow-hidden" style="aspect-ratio: 3/2;">
+              <img src={item.img} alt={item.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl mb-2" style="font-family: var(--font-family-display); color: white;">{item.title}</h3>
+              <p class="text-sm" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

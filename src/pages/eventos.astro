@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const items = [
+  { title: 'Eventos Corporativos', desc: 'Reuniones, presentaciones y celebraciones empresariales.', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80' },
+  { title: 'Cenas de Gala', desc: 'Elegancia y sofisticación para las veladas más especiales.', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80' },
+  { title: 'Banquetes', desc: 'Celebraciones multitudinarias con la máxima calidad.', img: 'https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=800&q=80' },
+]
+---
+<Layout title="Eventos" description="Eventos corporativos, cenas de gala y banquetes con Cobos Catering.">
+  <div class="pt-40 pb-20" style="background: var(--color-dark-card); border-bottom: 1px solid var(--color-dark-border);">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Lo que hacemos</span>
+      <span class="gold-divider" style="margin: 1.5rem auto;"></span>
+      <h1 class="section-heading">
+        Nuestros <span style="color: var(--color-gold);">Eventos</span>
+      </h1>
+    </div>
+  </div>
+
+  <section class="py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {items.map((item, i) => (
+          <div
+            class="overflow-hidden group"
+            style="border: 1px solid var(--color-dark-border);"
+            data-reveal
+            data-delay={String(i * 100)}
+          >
+            <div class="overflow-hidden" style="aspect-ratio: 3/2;">
+              <img src={item.img} alt={item.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl mb-2" style="font-family: var(--font-family-display); color: white;">{item.title}</h3>
+              <p class="text-sm" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
