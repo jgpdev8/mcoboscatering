@@ -1,0 +1,88 @@
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #BB923A;
+  --color-gold-light: #D4AA56;
+  --color-gold-dark: #8B6A22;
+  --color-dark: #111111;
+  --color-dark-card: #1A1A1A;
+  --color-dark-border: #2A2A2A;
+
+  --font-family-display: "Cormorant Garamond", Georgia, serif;
+  --font-family-body: "DM Sans", sans-serif;
+
+  --background-image-gold-gradient: linear-gradient(135deg, #BB923A 0%, #D4AA56 50%, #8B6A22 100%);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-dark);
+    color: white;
+    font-family: var(--font-family-body);
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 9999px; }
+}
+
+@layer components {
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    font-family: var(--font-family-body);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+  }
+  .btn-gold:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+  }
+
+  .section-heading {
+    font-family: var(--font-family-display);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 600;
+    color: white;
+    line-height: 1.1;
+  }
+
+  .gold-divider {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 1.5rem 0;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal][data-delay="100"] { transition-delay: 0.1s; }
+[data-reveal][data-delay="200"] { transition-delay: 0.2s; }
+[data-reveal][data-delay="300"] { transition-delay: 0.3s; }
