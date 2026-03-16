@@ -8,7 +8,7 @@ const items = [
 ]
 ---
 <Layout title="Catas Magistrales" description="Catas de vino y maridajes gastronómicos con Cobos Catering.">
-  <div class="pt-40 pb-20" style="background: var(--color-dark-card); border-bottom: 1px solid var(--color-dark-border);">
+  <div class="pt-44 pb-20" style="background: var(--color-bg-card); border-bottom: 1px solid var(--color-bg-border);">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Experiencias sensoriales</span>
       <span class="gold-divider" style="margin: 1.5rem auto;"></span>
@@ -21,7 +21,7 @@ const items = [
   <section class="py-32">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="max-w-3xl mx-auto text-center mb-16" data-reveal>
-        <p class="text-lg leading-relaxed" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.6);">
+        <p class="text-lg leading-relaxed" style="font-family: var(--font-family-body); color: rgba(0,0,0,0.6);">
           Una experiencia sensorial única donde el vino y la gastronomía mediterránea se funden
           para crear momentos inolvidables.
         </p>
@@ -30,7 +30,7 @@ const items = [
         {items.map((item, i) => (
           <div
             class="overflow-hidden group"
-            style="border: 1px solid var(--color-dark-border);"
+            style="border: 1px solid var(--color-bg-border);"
             data-reveal
             data-delay={String(i * 100)}
           >
@@ -40,8 +40,8 @@ const items = [
                 loading="lazy" />
             </div>
             <div class="p-6">
-              <h3 class="text-xl mb-2" style="font-family: var(--font-family-display); color: white;">{item.title}</h3>
-              <p class="text-sm" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">{item.desc}</p>
+              <h3 class="text-xl mb-2" style="font-family: var(--font-family-display); color: var(--color-dark);">{item.title}</h3>
+              <p class="text-sm" style="font-family: var(--font-family-body); color: rgba(0,0,0,0.5);">{item.desc}</p>
             </div>
           </div>
         ))}

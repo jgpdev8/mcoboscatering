@@ -8,19 +8,41 @@ const navItems = [
   { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '/contacto' },
 ]
+
+const socialLinks = [
+  { href: 'https://www.instagram.com/coboscatering/', label: 'Instagram' },
+  { href: 'https://www.facebook.com/coboscatering/', label: 'Facebook' },
+  { href: 'https://www.linkedin.com/company/gourmet-cobos-catering/', label: 'LinkedIn' },
+]
 ---
-<footer style="background: var(--color-dark); border-top: 1px solid var(--color-dark-border);">
+<footer style="background: var(--color-bg-card); border-top: 1px solid var(--color-bg-border);">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
       <!-- Brand -->
       <div>
-        <a href="/" style="font-family: var(--font-family-display); font-size: 1.5rem; font-weight: 600; color: white; text-decoration: none;">
-          Cobos <span style="color: var(--color-gold);">Catering</span>
+        <a href="/" class="inline-block">
+          <img
+            src="https://coboscatering.com/wp-content/uploads/2022/02/cropped-cobos-catering-logo.png"
+            alt="Cobos Catering"
+            class="h-10 w-auto object-contain"
+          />
         </a>
-        <p class="mt-4 text-sm leading-relaxed" style="color: rgba(255,255,255,0.5); font-family: var(--font-family-body);">
+        <p class="mt-4 text-sm leading-relaxed" style="color: rgba(0,0,0,0.5); font-family: var(--font-family-body);">
           Más de 30 años de experiencia creando experiencias gastronómicas únicas para cada celebración.
         </p>
+        <div class="flex gap-4 mt-5">
+          {socialLinks.map(s => (
+            <a href={s.href} target="_blank" rel="noopener noreferrer"
+               class="text-xs tracking-widest uppercase transition-colors"
+               style="color: var(--color-gold); font-family: var(--font-family-body);"
+               onmouseover="this.style.color='var(--color-gold-dark)'"
+               onmouseout="this.style.color='var(--color-gold)'"
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       <!-- Navegación -->
@@ -31,10 +53,10 @@ const navItems = [
             <li>
               <a
                 href={item.href}
-                class="text-sm tracking-wide hover:underline transition-colors"
-                style="color: rgba(255,255,255,0.5); font-family: var(--font-family-body);"
+                class="text-sm tracking-wide transition-colors"
+                style="color: rgba(0,0,0,0.5); font-family: var(--font-family-body);"
                 onmouseover="this.style.color='var(--color-gold)'"
-                onmouseout="this.style.color='rgba(255,255,255,0.5)'"
+                onmouseout="this.style.color='rgba(0,0,0,0.5)'"
               >
                 {item.label}
               </a>
@@ -46,7 +68,7 @@ const navItems = [
       <!-- Contacto -->
       <div>
         <h4 class="text-lg mb-4" style="font-family: var(--font-family-display); color: var(--color-gold);">Contacto</h4>
-        <div class="space-y-3 text-sm" style="color: rgba(255,255,255,0.5); font-family: var(--font-family-body);">
+        <div class="space-y-3 text-sm" style="color: rgba(0,0,0,0.5); font-family: var(--font-family-body);">
           <p>Hablemos sobre tu próximo evento</p>
           <a href="/contacto" class="btn-gold text-xs mt-4 inline-flex">
             Contactar ahora
@@ -56,16 +78,16 @@ const navItems = [
     </div>
 
     <!-- Bottom bar -->
-    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top: 1px solid var(--color-dark-border);">
-      <p class="text-xs" style="color: rgba(255,255,255,0.3); font-family: var(--font-family-body);">
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top: 1px solid var(--color-bg-border);">
+      <p class="text-xs" style="color: rgba(0,0,0,0.35); font-family: var(--font-family-body);">
         © {new Date().getFullYear()} Cobos Catering. Todos los derechos reservados.
       </p>
       <div class="flex gap-6">
         {['Política de cookies', 'Aviso legal', 'Política de privacidad'].map(item => (
-          <a href="#" class="text-xs hover:underline transition-colors"
-             style="color: rgba(255,255,255,0.3); font-family: var(--font-family-body);"
+          <a href="#" class="text-xs transition-colors"
+             style="color: rgba(0,0,0,0.35); font-family: var(--font-family-body);"
              onmouseover="this.style.color='var(--color-gold)'"
-             onmouseout="this.style.color='rgba(255,255,255,0.3)'"
+             onmouseout="this.style.color='rgba(0,0,0,0.35)'"
           >
             {item}
           </a>

@@ -10,27 +10,70 @@ const navLinks = [
 ]
 
 const currentPath = Astro.url.pathname
+
+const socialLinks = [
+  {
+    href: 'https://www.instagram.com/coboscatering/',
+    label: 'Instagram',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+  },
+  {
+    href: 'https://www.facebook.com/coboscatering/',
+    label: 'Facebook',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
+  },
+  {
+    href: 'https://www.linkedin.com/company/gourmet-cobos-catering/',
+    label: 'LinkedIn',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+  },
+]
 ---
-<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: white;">
+
+  <!-- Top bar: social icons right -->
+  <div style="border-bottom: 1px solid var(--color-bg-border);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-end items-center h-9 gap-4">
+      {socialLinks.map(s => (
+        <a
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={s.label}
+          class="transition-colors duration-200"
+          style="color: var(--color-gold);"
+          set:html={s.icon}
+        />
+      ))}
+    </div>
+  </div>
+
+  <!-- Main nav -->
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <nav class="flex items-center justify-between h-20">
+
       <!-- Logo -->
-      <a href="/" class="font-display text-2xl font-semibold text-white tracking-wide hover:text-gold transition-colors" style="font-family: var(--font-family-display);">
-        Cobos <span style="color: var(--color-gold);">Catering</span>
+      <a href="/" class="flex items-center shrink-0">
+        <img
+          src="https://coboscatering.com/wp-content/uploads/2022/02/cropped-cobos-catering-logo.png"
+          alt="Cobos Catering"
+          class="h-12 w-auto object-contain"
+        />
       </a>
 
       <!-- Desktop Menu -->
-      <ul class="hidden lg:flex items-center gap-8">
+      <ul class="hidden lg:flex items-center gap-7">
         {navLinks.map(link => (
           <li>
             <a
               href={link.href}
-              class={`text-sm tracking-widest uppercase transition-colors duration-200 ${
-                currentPath === link.href
-                  ? 'text-gold'
-                  : 'text-white/70 hover:text-gold'
-              }`}
-              style={currentPath === link.href ? `color: var(--color-gold); font-family: var(--font-family-body);` : `font-family: var(--font-family-body);`}
+              class="text-xs tracking-widest uppercase transition-colors duration-200"
+              style={currentPath === link.href
+                ? `color: var(--color-gold); font-family: var(--font-family-body);`
+                : `color: rgba(0,0,0,0.6); font-family: var(--font-family-body);`}
+              onmouseover="this.style.color='var(--color-gold)'"
+              onmouseout={currentPath === link.href ? "" : "this.style.color='rgba(0,0,0,0.6)'"}
             >
               {link.label}
             </a>
@@ -44,7 +87,7 @@ const currentPath = Astro.url.pathname
       </a>
 
       <!-- Mobile hamburger -->
-      <button id="menu-toggle" class="lg:hidden text-white p-2" aria-label="Menú">
+      <button id="menu-toggle" class="lg:hidden p-2" style="color: var(--color-dark);" aria-label="Menú">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -53,11 +96,15 @@ const currentPath = Astro.url.pathname
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden backdrop-blur-md border-t" style="background: rgba(17,17,17,0.95); border-color: var(--color-dark-border);">
+  <div id="mobile-menu" class="hidden lg:hidden border-t" style="background: white; border-color: var(--color-bg-border);">
     <ul class="px-6 py-4 space-y-4">
       {navLinks.map(link => (
         <li>
-          <a href={link.href} class="block text-sm tracking-widest uppercase text-white/70 hover:text-gold transition-colors py-2" style="font-family: var(--font-family-body);">
+          <a href={link.href} class="block text-sm tracking-widest uppercase py-2 transition-colors"
+             style="font-family: var(--font-family-body); color: rgba(0,0,0,0.6);"
+             onmouseover="this.style.color='var(--color-gold)'"
+             onmouseout="this.style.color='rgba(0,0,0,0.6)'"
+          >
             {link.label}
           </a>
         </li>
@@ -70,13 +117,9 @@ const currentPath = Astro.url.pathname
   const nav = document.getElementById('nav')!
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      nav.style.background = 'rgba(17,17,17,0.95)'
-      nav.style.backdropFilter = 'blur(12px)'
-      nav.style.borderBottom = '1px solid #2A2A2A'
+      nav.style.boxShadow = '0 1px 12px rgba(0,0,0,0.08)'
     } else {
-      nav.style.background = ''
-      nav.style.backdropFilter = ''
-      nav.style.borderBottom = ''
+      nav.style.boxShadow = ''
     }
   })
 

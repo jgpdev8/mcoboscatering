@@ -20,7 +20,7 @@ const events = [
   },
 ]
 ---
-<section class="py-32" style="background: var(--color-dark-card);">
+<section class="py-32" style="background: var(--color-bg-card);">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="text-center mb-16" data-reveal>
       <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Lo que ofrecemos</span>
@@ -32,12 +32,12 @@ const events = [
       {events.map((event, i) => (
         <a
           href={event.href}
-          class="group block overflow-hidden transition-colors duration-300"
-          style="border: 1px solid var(--color-dark-border);"
+          class="group block overflow-hidden transition-all duration-300"
+          style="border: 1px solid var(--color-bg-border); background: white;"
           data-reveal
           data-delay={String(i * 100)}
-          onmouseover="this.style.borderColor='rgba(187,146,58,0.4)'"
-          onmouseout="this.style.borderColor='var(--color-dark-border)'"
+          onmouseover="this.style.borderColor='rgba(187,146,58,0.4)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'"
+          onmouseout="this.style.borderColor='var(--color-bg-border)'; this.style.boxShadow=''"
         >
           <div class="overflow-hidden" style="aspect-ratio: 3/2;">
             <img
@@ -48,10 +48,10 @@ const events = [
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl mb-2 transition-colors duration-200 group-hover:text-gold" style="font-family: var(--font-family-display); color: white;">
+            <h3 class="text-xl mb-2 transition-colors duration-200" style="font-family: var(--font-family-display); color: var(--color-dark);">
               {event.title}
             </h3>
-            <p class="text-sm leading-relaxed" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">
+            <p class="text-sm leading-relaxed" style="font-family: var(--font-family-body); color: rgba(0,0,0,0.5);">
               {event.description}
             </p>
             <span class="inline-flex items-center gap-2 mt-4 text-xs tracking-widest uppercase transition-all duration-200 group-hover:gap-3"

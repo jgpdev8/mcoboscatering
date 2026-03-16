@@ -11,13 +11,12 @@
   --color-gold-light: #D4AA56;
   --color-gold-dark: #8B6A22;
   --color-dark: #111111;
-  --color-dark-card: #1A1A1A;
-  --color-dark-border: #2A2A2A;
+  --color-bg: #FFFFFF;
+  --color-bg-card: #F7F5F2;
+  --color-bg-border: #E5E0D8;
 
   --font-family-display: "Cormorant Garamond", Georgia, serif;
   --font-family-body: "DM Sans", sans-serif;
-
-  --background-image-gold-gradient: linear-gradient(135deg, #BB923A 0%, #D4AA56 50%, #8B6A22 100%);
 }
 
 @layer base {
@@ -27,13 +26,13 @@
   }
 
   body {
-    background-color: var(--color-dark);
-    color: white;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
     font-family: var(--font-family-body);
   }
 
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--color-dark); }
+  ::-webkit-scrollbar-track { background: var(--color-bg); }
   ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 9999px; }
 }
 
@@ -54,14 +53,14 @@
   }
   .btn-gold:hover {
     background-color: var(--color-gold);
-    color: var(--color-dark);
+    color: white;
   }
 
   .section-heading {
     font-family: var(--font-family-display);
     font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 600;
-    color: white;
+    color: var(--color-dark);
     line-height: 1.1;
   }
 

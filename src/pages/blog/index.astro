@@ -26,7 +26,7 @@ const posts = [
 ]
 ---
 <Layout title="Blog" description="Blog de Cobos Catering: tendencias, consejos y novedades gastronómicas.">
-  <div class="pt-40 pb-20" style="background: var(--color-dark-card); border-bottom: 1px solid var(--color-dark-border);">
+  <div class="pt-44 pb-20" style="background: var(--color-bg-card); border-bottom: 1px solid var(--color-bg-border);">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <span class="text-xs tracking-[0.3em] uppercase" style="font-family: var(--font-family-body); color: var(--color-gold);">Noticias y consejos</span>
       <span class="gold-divider" style="margin: 1.5rem auto;"></span>
@@ -42,7 +42,7 @@ const posts = [
         {posts.map((post, i) => (
           <article
             class="overflow-hidden group cursor-pointer"
-            style="border: 1px solid var(--color-dark-border);"
+            style="border: 1px solid var(--color-bg-border);"
             data-reveal
             data-delay={String(i * 100)}
           >
@@ -54,10 +54,10 @@ const posts = [
             <div class="p-6">
               <div class="flex items-center gap-3 mb-3">
                 <span class="text-xs px-2 py-1" style="background: rgba(187,146,58,0.1); color: var(--color-gold); font-family: var(--font-family-body);">{post.category}</span>
-                <span class="text-xs" style="color: rgba(255,255,255,0.3); font-family: var(--font-family-body);">{post.date}</span>
+                <span class="text-xs" style="color: rgba(0,0,0,0.3); font-family: var(--font-family-body);">{post.date}</span>
               </div>
-              <h3 class="text-xl mb-2 transition-colors duration-200 group-hover:text-gold" style="font-family: var(--font-family-display); color: white;">{post.title}</h3>
-              <p class="text-sm leading-relaxed" style="font-family: var(--font-family-body); color: rgba(255,255,255,0.5);">{post.excerpt}</p>
+              <h3 class="text-xl mb-2 transition-colors duration-200 group-hover:text-gold" style="font-family: var(--font-family-display); color: var(--color-dark);">{post.title}</h3>
+              <p class="text-sm leading-relaxed" style="font-family: var(--font-family-body); color: rgba(0,0,0,0.5);">{post.excerpt}</p>
               <span class="inline-flex items-center gap-2 mt-4 text-xs tracking-widest uppercase transition-all duration-200 group-hover:gap-3"
                     style="font-family: var(--font-family-body); color: var(--color-gold);">
                 Leer más
