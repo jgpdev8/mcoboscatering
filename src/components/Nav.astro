@@ -15,43 +15,24 @@ const socialLinks = [
   {
     href: 'https://www.instagram.com/coboscatering/',
     label: 'Instagram',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:1.1rem;height:1.1rem;display:block;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
   },
   {
     href: 'https://www.facebook.com/coboscatering/',
     label: 'Facebook',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:1.1rem;height:1.1rem;display:block;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
   },
   {
     href: 'https://www.linkedin.com/company/gourmet-cobos-catering/',
     label: 'LinkedIn',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:1.1rem;height:1.1rem;display:block;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
   },
 ]
 ---
 
-<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: white;">
-
-  <!-- Top bar: social icons right -->
-  <div style="border-bottom: 1px solid var(--color-bg-border);">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex justify-end items-center h-9 gap-4">
-      {socialLinks.map(s => (
-        <a
-          href={s.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={s.label}
-          class="transition-colors duration-200"
-          style="color: var(--color-gold);"
-          set:html={s.icon}
-        />
-      ))}
-    </div>
-  </div>
-
-  <!-- Main nav -->
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: white; border-bottom: 1px solid var(--color-bg-border);">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <nav class="flex items-center justify-between h-20">
+    <nav class="flex items-center justify-between h-20 gap-6">
 
       <!-- Logo -->
       <a href="/" class="flex items-center shrink-0">
@@ -63,17 +44,17 @@ const socialLinks = [
       </a>
 
       <!-- Desktop Menu -->
-      <ul class="hidden lg:flex items-center gap-7">
+      <ul class="hidden lg:flex items-center gap-7 flex-1 justify-center">
         {navLinks.map(link => (
           <li>
             <a
               href={link.href}
-              class="text-xs tracking-widest uppercase transition-colors duration-200"
+              class="text-xs tracking-wider uppercase transition-colors duration-200"
               style={currentPath === link.href
-                ? `color: var(--color-gold); font-family: var(--font-family-body);`
-                : `color: rgba(0,0,0,0.6); font-family: var(--font-family-body);`}
+                ? `color: var(--color-gold); font-family: var(--font-family-body); font-weight: 600;`
+                : `color: rgba(0,0,0,0.75); font-family: var(--font-family-body); font-weight: 600;`}
               onmouseover="this.style.color='var(--color-gold)'"
-              onmouseout={currentPath === link.href ? "" : "this.style.color='rgba(0,0,0,0.6)'"}
+              onmouseout={currentPath === link.href ? "" : "this.style.color='rgba(0,0,0,0.75)'"}
             >
               {link.label}
             </a>
@@ -81,10 +62,25 @@ const socialLinks = [
         ))}
       </ul>
 
-      <!-- CTA -->
-      <a href="/contacto" class="hidden lg:inline-flex btn-gold text-xs">
-        Solicitar presupuesto
-      </a>
+      <!-- Right side: CTA + Social icons -->
+      <div class="hidden lg:flex items-center gap-4 shrink-0">
+        <a href="/contacto" class="btn-gold text-xs">
+          Solicitar presupuesto
+        </a>
+        <div class="flex items-center gap-3" style="border-left: 1px solid var(--color-bg-border); padding-left: 1rem;">
+          {socialLinks.map(s => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              class="transition-colors duration-200"
+              style="color: var(--color-gold);"
+              set:html={s.icon}
+            />
+          ))}
+        </div>
+      </div>
 
       <!-- Mobile hamburger -->
       <button id="menu-toggle" class="lg:hidden p-2" style="color: var(--color-dark);" aria-label="Menú">
@@ -100,15 +96,21 @@ const socialLinks = [
     <ul class="px-6 py-4 space-y-4">
       {navLinks.map(link => (
         <li>
-          <a href={link.href} class="block text-sm tracking-widest uppercase py-2 transition-colors"
-             style="font-family: var(--font-family-body); color: rgba(0,0,0,0.6);"
+          <a href={link.href} class="block text-sm tracking-wider uppercase py-2 transition-colors"
+             style="font-family: var(--font-family-body); font-weight: 600; color: rgba(0,0,0,0.75);"
              onmouseover="this.style.color='var(--color-gold)'"
-             onmouseout="this.style.color='rgba(0,0,0,0.6)'"
+             onmouseout="this.style.color='rgba(0,0,0,0.75)'"
           >
             {link.label}
           </a>
         </li>
       ))}
+      <li class="flex gap-4 pt-2">
+        {socialLinks.map(s => (
+          <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+             style="color: var(--color-gold);" set:html={s.icon} />
+        ))}
+      </li>
     </ul>
   </div>
 </header>
